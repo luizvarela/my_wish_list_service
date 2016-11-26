@@ -44,6 +44,8 @@ GEM
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
     database_cleaner (1.5.3)
+    declarative (0.0.8)
+      uber (>= 0.0.15)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     factory_girl (4.7.0)
@@ -68,6 +70,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.9.1)
+    multi_json (1.12.1)
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -109,6 +112,9 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    representable (3.0.1)
+      declarative (~> 0.0.5)
+      uber (>= 0.0.15, < 0.2.0)
     rspec-core (3.5.4)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
@@ -145,6 +151,7 @@ GEM
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uber (0.1.0)
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -157,10 +164,12 @@ DEPENDENCIES
   database_cleaner
   factory_girl_rails
   listen (~> 3.0.5)
+  multi_json
   pg (~> 0.18)
   pry-rails
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
+  representable
   rspec-rails (~> 3.5)
   shoulda-matchers
   spring
