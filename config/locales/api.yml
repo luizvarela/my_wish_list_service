@@ -1,0 +1,9 @@
+api:
+  resources:
+    collection: collection
+  fields:
+    collection:
+      name: name
+  errors:
+    codes:
+      blank: cant_be_blank
