@@ -7,7 +7,18 @@ RSpec.describe Api::V1::CollectionsController, type: :controller do
     it "returns all collections" do
       get :index
       expect(response).to have_http_status(200)
-      expect(response_data.map { |collection| collection['name'] }).to eq(["My Wish List"])
+      expect(response_data.first['name']).to eq("My Wish List")
+    end
+  end
+
+  describe '#show' do
+    let!(:collection) { create :collection, name: 'My Wish List' }
+
+    it "returns the specific collection" do
+      get :show, params: { id: collection.id }
+
+      expect(response).to have_http_status(200)
+      expect(response_data['name']).to eq("My Wish List")
     end
   end
 
@@ -35,7 +46,7 @@ RSpec.describe Api::V1::CollectionsController, type: :controller do
     describe 'with invalid attributes' do
       it 'returns validation errors' do
         post :create, params: {}
-        
+
         expect(response_errors.first['resource']).to eq('collection')
         expect(response_errors.first['field']).to eq('name')
         expect(response_errors.first['code']).to eq('cant_be_blank')

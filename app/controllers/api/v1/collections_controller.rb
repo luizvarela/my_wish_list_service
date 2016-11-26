@@ -1,12 +1,15 @@
 module Api::V1
   class CollectionsController < BaseController
     def index
-      render json: api_response(data: Collection.all)
+      collections = Collection.all
+      data = ::V1::CollectionsSerializer.represent(collections.to_a)
+      render json: api_response(data: data)
     end
 
     def show
       collection = Collection.find(params[:id])
-      render json: api_response(data: collection)
+      data = ::V1::CollectionsSerializer.represent(collection)
+      render json: api_response(data: data)
     end
 
     def create
