@@ -13,7 +13,7 @@ module Api::V1
       render json: api_response(errors: errors), status: 422
     end
 
-    def reeturn_404
+    def return_404
       render json: api_response(errors: { code: 'not_found' }), status: :not_found
     end
   end

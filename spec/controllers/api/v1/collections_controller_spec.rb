@@ -20,6 +20,15 @@ RSpec.describe Api::V1::CollectionsController, type: :controller do
       expect(response).to have_http_status(200)
       expect(response_data['name']).to eq("My Wish List")
     end
+
+    describe 'with an invalid id' do
+      it 'returns a not found error' do
+        get :show, params: { id: 9999 }
+
+        expect(response).to have_http_status(404)
+        expect(response_errors['code']).to eq('not_found')
+      end
+    end
   end
 
   describe '#create' do
