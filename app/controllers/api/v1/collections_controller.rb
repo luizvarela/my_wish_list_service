@@ -25,7 +25,8 @@ module Api::V1
     private
 
     def collection_params
-      params.permit(:name)
+      params.permit(:name,
+        items_attributes: [:id, :name, :price])
     end
   end
 end
