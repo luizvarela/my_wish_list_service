@@ -35,7 +35,7 @@ RSpec.describe Api::V1::CollectionsController, type: :controller do
     describe 'with valid attributes' do
       let(:collection_params) { {
         name: 'My Collection',
-        items_attributes: [
+        items: [
           {
             name: 'My Guitar',
             price: 560.00
