@@ -25,7 +25,12 @@ module Api::V1
     private
 
     def collection_params
-      params.permit(:name)
+      permitted = params.permit(:name,
+        items: [:id, :name, :price])
+      if permitted[:items].present?
+        permitted[:items_attributes] = permitted.delete :items
+      end
+      permitted
     end
   end
 end

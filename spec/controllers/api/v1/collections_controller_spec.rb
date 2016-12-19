@@ -33,7 +33,13 @@ RSpec.describe Api::V1::CollectionsController, type: :controller do
 
   describe '#create' do
     describe 'with valid attributes' do
-      let(:collection_params) { { name: 'My Collection' } }
+      let(:collection_params) { {
+        name: 'My Collection',
+        items: [
+          {
+            name: 'My Guitar',
+            price: 560.00
+          }]}}
 
       before { post :create, params: collection_params }
 
