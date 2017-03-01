@@ -8,7 +8,7 @@ module Api::V1
 
     def show
       collection = Collection.find(params[:id])
-      data = ::V1::CollectionsSerializer.represent(collection)
+      data = ::V1::CollectionSerializer.represent(collection)
       render json: api_response(data: data)
     end
 
